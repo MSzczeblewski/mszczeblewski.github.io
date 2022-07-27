@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on MSzczeblewski</title>
-    <link>https://mszczeblewski.github.io/posts/</link>
-    <description>Recent content in Posts on MSzczeblewski</description>
+    <title>GIT on MSzczeblewski</title>
+    <link>https://mszczeblewski.github.io/tags/git/</link>
+    <description>Recent content in GIT on MSzczeblewski</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 27 Jul 2022 02:04:06 +0000</lastBuildDate><atom:link href="https://mszczeblewski.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 27 Jul 2022 02:04:06 +0000</lastBuildDate><atom:link href="https://mszczeblewski.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Build and Deploy a Static Site in a Container Using Hugo</title>
       <link>https://mszczeblewski.github.io/posts/1/</link>
@@ -107,19 +107,6 @@ I ended up nesting my deployment repo within my source repo. Hugo allows you to 
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Upload changes back to the remote repository&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git push origin &amp;lt;branch&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
-    </item>
-    
-    <item>
-      <title>Hello World</title>
-      <link>https://mszczeblewski.github.io/posts/hello/</link>
-      <pubDate>Tue, 26 Jul 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://mszczeblewski.github.io/posts/hello/</guid>
-      <description>Hello Cat The internet loves cats. This is mine.</description>
-      <content>&lt;h2 id=&#34;hello-cat&#34;&gt;Hello Cat&lt;/h2&gt;
-&lt;p&gt;The internet loves cats.
-This is mine.&lt;/p&gt;
-</content>
     </item>
     
   </channel>
