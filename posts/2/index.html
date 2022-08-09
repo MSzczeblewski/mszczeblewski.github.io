@@ -83,7 +83,7 @@
     
       
         
-          <li><a href=""></a></li>
+          <li><a href="/about">About</a></li>
         
       
       
@@ -95,7 +95,7 @@
   <ul class="menu__inner menu__inner--mobile">
     
       
-        <li><a href=""></a></li>
+        <li><a href="/about">About</a></li>
       
     
     
@@ -156,8 +156,8 @@ Normally I try and just grab it with the package manager so everything is handle
 <li>Setup dot files</li>
 </ul>
 <h3 id="neovim-directories">NeoVIM Directories<a href="#neovim-directories" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
-<p>Configs: <code> ~/.config/nvim</code>
-Plugins: <code> ~/.local/share/nvim/</code>
+<p>Configs: <code> ~/.config/nvim</code><br>
+Plugins: <code> ~/.local/share/nvim/</code><br>
 Logs: <code> ~/.cache/nvim</code></p>
 <p>Download the app image</p>
 <ul>
@@ -207,19 +207,19 @@ I used packer</p>
 <li><a href="https://github.com/wbthomason/packer.nvim#quickstart">https://github.com/wbthomason/packer.nvim#quickstart</a></li>
 </ul>
 <h3 id="treesitter">Treesitter<a href="#treesitter" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
-<p>Language parsing tool that generates metadata about your source files<br>
-Provides syntax highlighting, indentation and folding<br>
-Found the folding to be a bit troublesome, disabled it for now until I revisit it</p>
+<p>Language parsing tool that generates metadata about your source files.<br>
+Provides syntax highlighting, indentation and folding.<br>
+Found the folding to be a bit troublesome, disabled it for now until I revisit it.</p>
 <ul>
 <li><a href="https://github.com/nvim-treesitter/nvim-treesitter/blob/master/doc/nvim-treesitter.txt">https://github.com/nvim-treesitter/nvim-treesitter/blob/master/doc/nvim-treesitter.txt</a></li>
 </ul>
 <h3 id="lsp">LSP<a href="#lsp" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <p>Language Server Protocol<br>
-Provides auto completion options, goto definition, find references, diagnostics, etc<br>
-I think the concept is awesome and tried like hell to get it working<br>
+Provides auto completion options, goto definition, find references, diagnostics, etc.
+I think the concept is awesome and tried like hell to get it working.
 Unfortunately the tool chain at my job is unable to generate the needed compile_commands.json needed.
-So I ended up using ctags for goto definition and a fuzzy finder for searching references
-If you are able to easily generate the needed meta data it should be worth diving into setting up an LSP</p>
+So I ended up using ctags for goto definition and a fuzzy finder for searching references.
+If you are able to easily generate the needed meta data it should be worth diving into setting up an LSP.</p>
 <ul>
 <li><a href="https://github.com/neovim/nvim-lspconfig">https://github.com/neovim/nvim-lspconfig</a></li>
 </ul>
@@ -230,16 +230,16 @@ Can pull from multiple sources (Great with an LSP setup)</p>
 <li><a href="https://github.com/hrsh7th/nvim-cmp">https://github.com/hrsh7th/nvim-cmp</a></li>
 </ul>
 <h3 id="fuzzy-finder">Fuzzy Finder<a href="#fuzzy-finder" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
-<p>Allows searching and navigation from within your project dynamically
-The github info page is misleading, ripgrep and fd are required
-Run a :check_health telescope and install anything missing
-This is my favorite plugin hands down</p>
+<p>Allows searching and navigation from within your project dynamically.
+The github info page is misleading, ripgrep and fd are required.
+Run a :check_health telescope and install anything missing.
+This is my favorite plugin hands down.</p>
 <ul>
 <li><a href="https://github.com/nvim-telescope/telescope.nvim">https://github.com/nvim-telescope/telescope.nvim</a></li>
 </ul>
 <h3 id="other-stuff">Other Stuff<a href="#other-stuff" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <p>Things still on the list to check out include:
-Code formatters, Linters
+Code formatters, Linters<br>
 Though some LSPs  seem to take care of these things as well</p>
 <h3 id="my-neovim-setup">My NeoVim Setup<a href="#my-neovim-setup" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <p>Backup dot files to git repo like I do</p>
@@ -250,7 +250,8 @@ Though some LSPs  seem to take care of these things as well</p>
 <p>Thorough playlist and enough to get started with neovim
 -Neovim from Scratch <a href="https://youtube.com/playlist?list=PLhoH5vyxr6Qq41NFL4GvhFp-WLd5xzIzZ">https://youtube.com/playlist?list=PLhoH5vyxr6Qq41NFL4GvhFp-WLd5xzIzZ</a></p>
 <h3 id="to-do">To Do<a href="#to-do" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
-<p>I still need to pin packages to a working version once the setup is stable. This also include building neovim from source or running the precompiled app image since its version is fixed.
+<p>I still need to pin packages to a working version once the setup is stable.
+This also include building neovim from source or running the precompiled app image since its version is fixed.
 The last thing I want to deal with is IDE throwing errors while trying to work.</p>
 
       </div></div>

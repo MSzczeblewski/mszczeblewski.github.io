@@ -30,8 +30,8 @@ Normally I try and just grab it with the package manager so everything is handle
 &lt;li&gt;Setup dot files&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;neovim-directories&#34;&gt;NeoVIM Directories&lt;/h3&gt;
-&lt;p&gt;Configs: &lt;code&gt; ~/.config/nvim&lt;/code&gt;
-Plugins: &lt;code&gt; ~/.local/share/nvim/&lt;/code&gt;
+&lt;p&gt;Configs: &lt;code&gt; ~/.config/nvim&lt;/code&gt;&lt;br&gt;
+Plugins: &lt;code&gt; ~/.local/share/nvim/&lt;/code&gt;&lt;br&gt;
 Logs: &lt;code&gt; ~/.cache/nvim&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Download the app image&lt;/p&gt;
 &lt;ul&gt;
@@ -81,19 +81,19 @@ I used packer&lt;/p&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/wbthomason/packer.nvim#quickstart&#34;&gt;https://github.com/wbthomason/packer.nvim#quickstart&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;treesitter&#34;&gt;Treesitter&lt;/h3&gt;
-&lt;p&gt;Language parsing tool that generates metadata about your source files&lt;br&gt;
-Provides syntax highlighting, indentation and folding&lt;br&gt;
-Found the folding to be a bit troublesome, disabled it for now until I revisit it&lt;/p&gt;
+&lt;p&gt;Language parsing tool that generates metadata about your source files.&lt;br&gt;
+Provides syntax highlighting, indentation and folding.&lt;br&gt;
+Found the folding to be a bit troublesome, disabled it for now until I revisit it.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/nvim-treesitter/nvim-treesitter/blob/master/doc/nvim-treesitter.txt&#34;&gt;https://github.com/nvim-treesitter/nvim-treesitter/blob/master/doc/nvim-treesitter.txt&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;lsp&#34;&gt;LSP&lt;/h3&gt;
 &lt;p&gt;Language Server Protocol&lt;br&gt;
-Provides auto completion options, goto definition, find references, diagnostics, etc&lt;br&gt;
-I think the concept is awesome and tried like hell to get it working&lt;br&gt;
+Provides auto completion options, goto definition, find references, diagnostics, etc.
+I think the concept is awesome and tried like hell to get it working.
 Unfortunately the tool chain at my job is unable to generate the needed compile_commands.json needed.
-So I ended up using ctags for goto definition and a fuzzy finder for searching references
-If you are able to easily generate the needed meta data it should be worth diving into setting up an LSP&lt;/p&gt;
+So I ended up using ctags for goto definition and a fuzzy finder for searching references.
+If you are able to easily generate the needed meta data it should be worth diving into setting up an LSP.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/neovim/nvim-lspconfig&#34;&gt;https://github.com/neovim/nvim-lspconfig&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -104,16 +104,16 @@ Can pull from multiple sources (Great with an LSP setup)&lt;/p&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/hrsh7th/nvim-cmp&#34;&gt;https://github.com/hrsh7th/nvim-cmp&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;fuzzy-finder&#34;&gt;Fuzzy Finder&lt;/h3&gt;
-&lt;p&gt;Allows searching and navigation from within your project dynamically
-The github info page is misleading, ripgrep and fd are required
-Run a :check_health telescope and install anything missing
-This is my favorite plugin hands down&lt;/p&gt;
+&lt;p&gt;Allows searching and navigation from within your project dynamically.
+The github info page is misleading, ripgrep and fd are required.
+Run a :check_health telescope and install anything missing.
+This is my favorite plugin hands down.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/nvim-telescope/telescope.nvim&#34;&gt;https://github.com/nvim-telescope/telescope.nvim&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;other-stuff&#34;&gt;Other Stuff&lt;/h3&gt;
 &lt;p&gt;Things still on the list to check out include:
-Code formatters, Linters
+Code formatters, Linters&lt;br&gt;
 Though some LSPs  seem to take care of these things as well&lt;/p&gt;
 &lt;h3 id=&#34;my-neovim-setup&#34;&gt;My NeoVim Setup&lt;/h3&gt;
 &lt;p&gt;Backup dot files to git repo like I do&lt;/p&gt;
@@ -124,7 +124,8 @@ Though some LSPs  seem to take care of these things as well&lt;/p&gt;
 &lt;p&gt;Thorough playlist and enough to get started with neovim
 -Neovim from Scratch &lt;a href=&#34;https://youtube.com/playlist?list=PLhoH5vyxr6Qq41NFL4GvhFp-WLd5xzIzZ&#34;&gt;https://youtube.com/playlist?list=PLhoH5vyxr6Qq41NFL4GvhFp-WLd5xzIzZ&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;to-do&#34;&gt;To Do&lt;/h3&gt;
-&lt;p&gt;I still need to pin packages to a working version once the setup is stable. This also include building neovim from source or running the precompiled app image since its version is fixed.
+&lt;p&gt;I still need to pin packages to a working version once the setup is stable.
+This also include building neovim from source or running the precompiled app image since its version is fixed.
 The last thing I want to deal with is IDE throwing errors while trying to work.&lt;/p&gt;
 </content>
     </item>
