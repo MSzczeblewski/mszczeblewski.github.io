@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Personal Development Environment #1 :: MSzczeblewski</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content=" " />
+<meta name="keywords" content=", " />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://mszczeblewski.github.io/posts/2/" />
+
+
+
+
+<link rel="stylesheet" href="https://mszczeblewski.github.io/assets/style.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon" href="https://mszczeblewski.github.io/img/apple-touch-icon-192x192.png">
+
+  <link rel="shortcut icon" href="https://mszczeblewski.github.io/favicon.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Personal Development Environment #1">
+<meta property="og:description" content=" " />
+<meta property="og:url" content="https://mszczeblewski.github.io/posts/2/" />
+<meta property="og:site_name" content="MSzczeblewski" />
+
+  <meta property="og:image" content="https://mszczeblewski.github.io/img/nvimlogo.svg">
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+  <meta property="article:published_time" content="2022-08-08 03:44:35 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="orange">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    MSzczeblewski
+  </div>
+</a>
+
+    </div>
+    
+      <div class="menu-trigger">menu</div>
+    
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href=""></a></li>
+        
+      
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href=""></a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="https://mszczeblewski.github.io/posts/2/">Personal Development Environment #1</a></h1>
+  <div class="post-meta">
+    
+      <span class="post-date">
+        2022-08-08
+        
+      </span>
+    
+    
+      <span class="post-author">:: Matthew</span>
+    
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="https://mszczeblewski.github.io/tags/neovim/">NeoVim</a>&nbsp;
+    
+  </span>
+  
+  
+  <img src="https://mszczeblewski.github.io/img/nvimlogo.svg"
+    class="post-cover"
+    alt="Personal Development Environment #1"
+    title="Cover Image" />
+
+
+  
+
+  <div class="post-content"><div>
+        <h1 id="personal-development-environment-1">Personal Development Environment #1<a href="#personal-development-environment-1" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<p>This will be more of an experience dump along with my notes from recent experiments with my development environment.</p>
+<p>A bit of backstory&hellip;
+My typical day includes shelling into embedded systems, building in in docker containers, and working in virtual machines setup for specific toolchains. Working with cli text editors has been a bit of a crutch from growing up as a Windows user. They usually tend to just work, index my source and provide enough of the basics right out of the box. Working on embedded systems really requires a working knowledge of various command line tools to be proficient. I recently made the effort to get rid of the crutch, and there was definitely some crawling after falling over. Bright side so far, streamlined inputs and sped up repetitive tasks. The biggest difference has been the improvement to my RSI after a long day of not mousing.</p>
+<p>This won&rsquo;t be a full tutorial, there are plenty out there.
+Recording the struggles and pain points are beneficial since they tend to be the hard parts to solve.</p>
+<h2 id="work-setup">Work setup<a href="#work-setup" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>The system I need to set up vim on is a VM of an older version of Ubuntu 16.04 with fixed dependencies.
+Normally I try and just grab it with the package manager so everything is handled. Ended up using the app image which comes precompiled.</p>
+<h2 id="the-basics">The Basics<a href="#the-basics" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<ul>
+<li>Download neovim</li>
+<li>Setup dot files</li>
+</ul>
+<h3 id="neovim-directories">NeoVIM Directories<a href="#neovim-directories" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Configs: <code> ~/.config/nvim</code>
+Plugins: <code> ~/.local/share/nvim/</code>
+Logs: <code> ~/.cache/nvim</code></p>
+<p>Download the app image</p>
+<ul>
+<li><a href="https://github.com/neovim/neovim/wiki/Installing-Neovim#linux">https://github.com/neovim/neovim/wiki/Installing-Neovim#linux</a></li>
+</ul>
+<p>Update the permission on the file</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo chmod a<span style="color:#f92672">=</span>rx nvim.appimage
+</span></span></code></pre></div><p>Copy it to your bin dir</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo cp /usr/bin/
+</span></span></code></pre></div><p>Set neovim to run as default when typing vim</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim.appimage <span style="color:#ae81ff">60</span>
+</span></span><span style="display:flex;"><span>sudo update-alternatives --config vim
+</span></span></code></pre></div><p>Setup the config file</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd ~/.config
+</span></span><span style="display:flex;"><span>sudo mkdir nvim
+</span></span><span style="display:flex;"><span>vim init.lua
+</span></span></code></pre></div><p>Add some configs to make sure it works</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span>vim.bo.expandtab <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>vim.bo.shiftwidth <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>vim.bo.softtabstop <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">local</span> keymap <span style="color:#f92672">=</span> vim.api.nvim_set_keymap
+</span></span><span style="display:flex;"><span>keymap(<span style="color:#e6db74">&#39;n&#39;</span>, <span style="color:#e6db74">&#39;&lt;c-s&gt;&#39;</span>, <span style="color:#e6db74">&#39;:w&lt;CR&gt;&#39;</span>, {})
+</span></span><span style="display:flex;"><span>keymap(<span style="color:#e6db74">&#39;i&#39;</span>, <span style="color:#e6db74">&#39;&lt;c-s&gt;&#39;</span>, <span style="color:#e6db74">&#39;&lt;Esc&gt;:w&lt;CR&gt;a&#39;</span>, {})
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">local</span> opts <span style="color:#f92672">=</span> { noremap <span style="color:#f92672">=</span> <span style="color:#66d9ef">true</span> }
+</span></span><span style="display:flex;"><span>keymap(<span style="color:#e6db74">&#39;n&#39;</span>, <span style="color:#e6db74">&#39;&lt;c-j&gt;&#39;</span>, <span style="color:#e6db74">&#39;&lt;c-w&gt;j&#39;</span>, opts)
+</span></span><span style="display:flex;"><span>keymap(<span style="color:#e6db74">&#39;n&#39;</span>, <span style="color:#e6db74">&#39;&lt;c-h&gt;&#39;</span>, <span style="color:#e6db74">&#39;&lt;c-w&gt;h&#39;</span>, opts)
+</span></span><span style="display:flex;"><span>keymap(<span style="color:#e6db74">&#39;n&#39;</span>, <span style="color:#e6db74">&#39;&lt;c-k&gt;&#39;</span>, <span style="color:#e6db74">&#39;&lt;c-w&gt;k&#39;</span>, opts)
+</span></span><span style="display:flex;"><span>keymap(<span style="color:#e6db74">&#39;n&#39;</span>, <span style="color:#e6db74">&#39;&lt;c-l&gt;&#39;</span>, <span style="color:#e6db74">&#39;&lt;c-w&gt;l&#39;</span>, opts)
+</span></span></code></pre></div><p>This concludes a barebones install of neovim.</p>
+<p>Neovim has a ton of plugins allowing for deep customization
+From personal experience the farther I deviate from a vanilla distro experience the worse moving across systems becomes
+Working on embedded systems, or I am guessing devops this is a common scenario.
+I focused on creating a stable baseline experience without too much baggage.</p>
+<h2 id="semi-basics">Semi Basics<a href="#semi-basics" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>-Setup package manager<br>
+-Setup treesitter - This is for syntax highlighting<br>
+-Setup an LSP - This allows for language context<br>
+-Setup nvim_cmp - Auto complete<br>
+-Setup telescope - Fuzzy finder<br>
+-Pin packages to a working version<br>
+-Backup dot files to git repo</p>
+<h3 id="package-manager">Package Manager<a href="#package-manager" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>This handles updating and downloading plugins<br>
+I used packer</p>
+<ul>
+<li><a href="https://github.com/wbthomason/packer.nvim#quickstart">https://github.com/wbthomason/packer.nvim#quickstart</a></li>
+</ul>
+<h3 id="treesitter">Treesitter<a href="#treesitter" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Language parsing tool that generates metadata about your source files<br>
+Provides syntax highlighting, indentation and folding<br>
+Found the folding to be a bit troublesome, disabled it for now until I revisit it</p>
+<ul>
+<li><a href="https://github.com/nvim-treesitter/nvim-treesitter/blob/master/doc/nvim-treesitter.txt">https://github.com/nvim-treesitter/nvim-treesitter/blob/master/doc/nvim-treesitter.txt</a></li>
+</ul>
+<h3 id="lsp">LSP<a href="#lsp" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Language Server Protocol<br>
+Provides auto completion options, goto definition, find references, diagnostics, etc<br>
+I think the concept is awesome and tried like hell to get it working<br>
+Unfortunately the tool chain at my job is unable to generate the needed compile_commands.json needed.
+So I ended up using ctags for goto definition and a fuzzy finder for searching references
+If you are able to easily generate the needed meta data it should be worth diving into setting up an LSP</p>
+<ul>
+<li><a href="https://github.com/neovim/nvim-lspconfig">https://github.com/neovim/nvim-lspconfig</a></li>
+</ul>
+<h3 id="completion">Completion<a href="#completion" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Auto completion
+Can pull from multiple sources (Great with an LSP setup)</p>
+<ul>
+<li><a href="https://github.com/hrsh7th/nvim-cmp">https://github.com/hrsh7th/nvim-cmp</a></li>
+</ul>
+<h3 id="fuzzy-finder">Fuzzy Finder<a href="#fuzzy-finder" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Allows searching and navigation from within your project dynamically
+The github info page is misleading, ripgrep and fd are required
+Run a :check_health telescope and install anything missing
+This is my favorite plugin hands down</p>
+<ul>
+<li><a href="https://github.com/nvim-telescope/telescope.nvim">https://github.com/nvim-telescope/telescope.nvim</a></li>
+</ul>
+<h3 id="other-stuff">Other Stuff<a href="#other-stuff" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Things still on the list to check out include:
+Code formatters, Linters
+Though some LSPs  seem to take care of these things as well</p>
+<h3 id="my-neovim-setup">My NeoVim Setup<a href="#my-neovim-setup" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Backup dot files to git repo like I do</p>
+<ul>
+<li><a href="https://github.com/MSzczeblewski/nvim/tree/master">https://github.com/MSzczeblewski/nvim/tree/master</a></li>
+</ul>
+<h2 id="recommended-source">Recommended Source<a href="#recommended-source" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Thorough playlist and enough to get started with neovim
+-Neovim from Scratch <a href="https://youtube.com/playlist?list=PLhoH5vyxr6Qq41NFL4GvhFp-WLd5xzIzZ">https://youtube.com/playlist?list=PLhoH5vyxr6Qq41NFL4GvhFp-WLd5xzIzZ</a></p>
+<h3 id="to-do">To Do<a href="#to-do" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>I still need to pin packages to a working version once the setup is stable. This also include building neovim from source or running the precompiled app image since its version is fixed.
+The last thing I want to deal with is IDE throwing errors while trying to work.</p>
+
+      </div></div>
+
+  
+  
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Read More</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        
+        <span class="button next">
+            <a href="https://mszczeblewski.github.io/posts/1/">
+                <span class="button__text">Build and Deploy a Static Site in a Container Using Hugo</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
+        
+    </div>
+</div>
+
+  
+
+  
+  
+
+  
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="center">
+       <span> <a href="https://www.linkedin.com/in/mszczeblewski"/>LinkedIn</a></span>
+    
+       <span>:: <a href="https://github.com/MSzczeblewski">Github</a></span> 
+       <span>:: <a href="mailto: mszczeblewski@me.com">Email</a></span> 
+      </div>
+  </div>
+</footer>
+
+<script src="https://mszczeblewski.github.io/assets/main.js"></script>
+<script src="https://mszczeblewski.github.io/assets/prism.js"></script>
+
+
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

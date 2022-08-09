@@ -38,7 +38,7 @@
 <meta property="og:url" content="https://mszczeblewski.github.io/posts/1/" />
 <meta property="og:site_name" content="MSzczeblewski" />
 
-  <meta property="og:image" content="https://mszczeblewski.github.io/">
+  <meta property="og:image" content="https://mszczeblewski.github.io/img/hugologo.svg">
 
 <meta property="og:image:width" content="2048">
 <meta property="og:image:height" content="1024">
@@ -82,18 +82,10 @@
   <ul class="menu__inner menu__inner--desktop">
     
       
+        
+          <li><a href=""></a></li>
+        
       
-        <ul class="menu__sub-inner">
-          <li class="menu__sub-inner-more-trigger">Show more ▾</li>
-
-          <ul class="menu__sub-inner-more hidden">
-            
-              
-                <li><a href="/about">About</a></li>
-              
-            
-          </ul>
-        </ul>
       
     
 
@@ -103,7 +95,7 @@
   <ul class="menu__inner menu__inner--mobile">
     
       
-        <li><a href="/about">About</a></li>
+        <li><a href=""></a></li>
       
     
     
@@ -137,22 +129,29 @@
     
     #<a href="https://mszczeblewski.github.io/tags/lxc/">LXC</a>&nbsp;
     
-    #<a href="https://mszczeblewski.github.io/tags/git/">GIT</a>&nbsp;
-    
     #<a href="https://mszczeblewski.github.io/tags/hugo/">HUGO</a>&nbsp;
     
   </span>
   
   
+  <img src="https://mszczeblewski.github.io/img/hugologo.svg"
+    class="post-cover"
+    alt="Build and Deploy a Static Site in a Container Using Hugo"
+    title="Cover Image" />
 
 
   
 
   <div class="post-content"><div>
         <h2 id="why-a-container">Why a Container?<a href="#why-a-container" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
-<p>Well I need some excuse to use my recycled homelab server. There are some more practicle reasons as well. It gives me the ability to develop remotely from all the PCs on my network by remoting in. I can selfhost the site on my local network!</p>
+<p>Well I need some excuse to use my recycled homelab server.
+There are some more practicle reasons as well.
+It gives me the ability to develop remotely from all the PCs on my network by remoting in.
+I can deploy the site on my local network to test on various platforms!</p>
 <h2 id="why-hugo">Why Hugo?<a href="#why-hugo" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
-<p>I chose it because it generates super simple sites that I can easily maintain. Jekyll looks pretty interesting and can generate more complex sites with plugins. Maybe that will be attempt #2</p>
+<p>I chose it because it generates super simple sites that I can easily maintain.
+Jekyll looks pretty interesting and can generate more complex sites with plugins.
+Maybe that will be attempt #2</p>
 <h2 id="prerequisites">Prerequisites<a href="#prerequisites" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <ul>
 <li>A workable knowledge of linux and the command line</li>
@@ -164,7 +163,7 @@
 <h2 id="container-setup">Container Setup<a href="#container-setup" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>Ceate a new LXC container (I chose unbuntu 20.04)</p>
 <ul>
-<li>Caveat: The apt package manager that comes with Unbuntu has an ancient version of Hugo<br>
+<li>The apt package manager that comes with Unbuntu has an ancient version of Hugo<br>
 So I end up installing brew to get the latest version</li>
 </ul>
 <p>Login as root</p>
@@ -204,9 +203,6 @@ So I end up installing brew to get the latest version</li>
 </span></span></code></pre></div><p>Congo Rats! We have a boiler plate site.</p>
 <p>From here on out modify as you wish.</p>
 <h2 id="setting-up-git">Setting up GIT<a href="#setting-up-git" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
-<p>I am still in the process of learning git version control. So don&rsquo;t take what I did from here on out as gospel.
-A few things I could have done better:<br>
-I ended up nesting my deployment repo within my source repo. Hugo allows you to change the /public directory where the built site is dumped. I also did not add my theme as a git submodule and it is not properly version controlled. I will have to go back and clean up both these issues.</p>
 <p>Create two repositories on github.</p>
 <h3 id="repo-1-deployment">Repo 1 (Deployment)<a href="#repo-1-deployment" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <ul>
@@ -220,27 +216,18 @@ I ended up nesting my deployment repo within my source repo. Hugo allows you to 
 <li>This repo will be holding your source</li>
 <li>In the project root update the url in config.toml so it points to your github.io page</li>
 </ul>
-<p>Check out my github for an example on how I set it up.</p>
+<p>Check out my github for an example on how I set it up</p>
 <ul>
 <li><a href="https://github.com/MSzczeblewski/mszczeblewski.github.io">Depolyment Repo</a></li>
 <li><a href="https://github.com/MSzczeblewski/blog">Source Repo</a></li>
 </ul>
-<h2 id="usefull-git-commands">Usefull Git Commands<a href="#usefull-git-commands" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
-<p>Tell git that the current directory is a git repository</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git init
-</span></span></code></pre></div><p>Tell git what is the url of the remote repository</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git remote add origin &lt;remote_url&gt;
-</span></span></code></pre></div><p>Grab the content of the remote repository</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git fetch --all --prune
-</span></span></code></pre></div><p>Check out the desired branch (master &amp; main in my examples)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git checkout master
-</span></span></code></pre></div><p>Add the new files to the current <!-- raw HTML omitted --></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git add -A .
-</span></span></code></pre></div><p>Commit your changes</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;message here&#34;</span>
-</span></span></code></pre></div><p>Upload changes back to the remote repository</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git push origin &lt;branch&gt;
-</span></span></code></pre></div>
+<h2 id="to-dos-watch-outs">To Dos, Watch Outs<a href="#to-dos-watch-outs" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Still in the process of learning git version control<br>
+A few things I could have done better:<br>
+Ended up nesting my deployment repo within my source repo.
+Hugo allows you to change the /public directory where the built site is dumped.
+I also did not add my theme as a git submodule and it is not properly version controlled. I will have to go back and clean up both these issues.</p>
+
       </div></div>
 
   
@@ -252,13 +239,13 @@ I ended up nesting my deployment repo within my source repo. Hugo allows you to 
     </div>
     <div class="pagination__buttons">
         
-        
-        <span class="button next">
-            <a href="https://mszczeblewski.github.io/posts/hello/">
-                <span class="button__text">Hello World</span>
-                <span class="button__icon">→</span>
+        <span class="button previous">
+            <a href="https://mszczeblewski.github.io/posts/2/">
+                <span class="button__icon">←</span>
+                <span class="button__text">Personal Development Environment #1</span>
             </a>
         </span>
+        
         
     </div>
 </div>
@@ -278,9 +265,10 @@ I ended up nesting my deployment repo within my source repo. Hugo allows you to 
   <div class="footer__inner">
     
       <div class="center">
-       <span>       <a href="https://www.linkedin.com/in/mszczeblewski"/>LinkedIn</a></span>
+       <span> <a href="https://www.linkedin.com/in/mszczeblewski"/>LinkedIn</a></span>
     
        <span>:: <a href="https://github.com/MSzczeblewski">Github</a></span> 
+       <span>:: <a href="mailto: mszczeblewski@me.com">Email</a></span> 
       </div>
   </div>
 </footer>

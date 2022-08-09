@@ -13,12 +13,17 @@
       <pubDate>Wed, 27 Jul 2022 02:04:06 +0000</pubDate>
       
       <guid>https://mszczeblewski.github.io/posts/1/</guid>
-      <description>Why a Container? Well I need some excuse to use my recycled homelab server. There are some more practicle reasons as well. It gives me the ability to develop remotely from all the PCs on my network by remoting in. I can selfhost the site on my local network!
+      <description>Why a Container? Well I need some excuse to use my recycled homelab server. There are some more practicle reasons as well. It gives me the ability to develop remotely from all the PCs on my network by remoting in. I can deploy the site on my local network to test on various platforms!
 Why Hugo? I chose it because it generates super simple sites that I can easily maintain. Jekyll looks pretty interesting and can generate more complex sites with plugins.</description>
       <content>&lt;h2 id=&#34;why-a-container&#34;&gt;Why a Container?&lt;/h2&gt;
-&lt;p&gt;Well I need some excuse to use my recycled homelab server. There are some more practicle reasons as well. It gives me the ability to develop remotely from all the PCs on my network by remoting in. I can selfhost the site on my local network!&lt;/p&gt;
+&lt;p&gt;Well I need some excuse to use my recycled homelab server.
+There are some more practicle reasons as well.
+It gives me the ability to develop remotely from all the PCs on my network by remoting in.
+I can deploy the site on my local network to test on various platforms!&lt;/p&gt;
 &lt;h2 id=&#34;why-hugo&#34;&gt;Why Hugo?&lt;/h2&gt;
-&lt;p&gt;I chose it because it generates super simple sites that I can easily maintain. Jekyll looks pretty interesting and can generate more complex sites with plugins. Maybe that will be attempt #2&lt;/p&gt;
+&lt;p&gt;I chose it because it generates super simple sites that I can easily maintain.
+Jekyll looks pretty interesting and can generate more complex sites with plugins.
+Maybe that will be attempt #2&lt;/p&gt;
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;A workable knowledge of linux and the command line&lt;/li&gt;
@@ -30,7 +35,7 @@ Why Hugo? I chose it because it generates super simple sites that I can easily m
 &lt;h2 id=&#34;container-setup&#34;&gt;Container Setup&lt;/h2&gt;
 &lt;p&gt;Ceate a new LXC container (I chose unbuntu 20.04)&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Caveat: The apt package manager that comes with Unbuntu has an ancient version of Hugo&lt;br&gt;
+&lt;li&gt;The apt package manager that comes with Unbuntu has an ancient version of Hugo&lt;br&gt;
 So I end up installing brew to get the latest version&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Login as root&lt;/p&gt;
@@ -70,9 +75,6 @@ So I end up installing brew to get the latest version&lt;/li&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Congo Rats! We have a boiler plate site.&lt;/p&gt;
 &lt;p&gt;From here on out modify as you wish.&lt;/p&gt;
 &lt;h2 id=&#34;setting-up-git&#34;&gt;Setting up GIT&lt;/h2&gt;
-&lt;p&gt;I am still in the process of learning git version control. So don&amp;rsquo;t take what I did from here on out as gospel.
-A few things I could have done better:&lt;br&gt;
-I ended up nesting my deployment repo within my source repo. Hugo allows you to change the /public directory where the built site is dumped. I also did not add my theme as a git submodule and it is not properly version controlled. I will have to go back and clean up both these issues.&lt;/p&gt;
 &lt;p&gt;Create two repositories on github.&lt;/p&gt;
 &lt;h3 id=&#34;repo-1-deployment&#34;&gt;Repo 1 (Deployment)&lt;/h3&gt;
 &lt;ul&gt;
@@ -86,27 +88,18 @@ I ended up nesting my deployment repo within my source repo. Hugo allows you to 
 &lt;li&gt;This repo will be holding your source&lt;/li&gt;
 &lt;li&gt;In the project root update the url in config.toml so it points to your github.io page&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Check out my github for an example on how I set it up.&lt;/p&gt;
+&lt;p&gt;Check out my github for an example on how I set it up&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/MSzczeblewski/mszczeblewski.github.io&#34;&gt;Depolyment Repo&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/MSzczeblewski/blog&#34;&gt;Source Repo&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;usefull-git-commands&#34;&gt;Usefull Git Commands&lt;/h2&gt;
-&lt;p&gt;Tell git that the current directory is a git repository&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git init
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Tell git what is the url of the remote repository&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git remote add origin &amp;lt;remote_url&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Grab the content of the remote repository&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git fetch --all --prune
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Check out the desired branch (master &amp;amp; main in my examples)&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git checkout master
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Add the new files to the current &lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git add -A .
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Commit your changes&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git commit -m &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;message here&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Upload changes back to the remote repository&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git push origin &amp;lt;branch&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
+&lt;h2 id=&#34;to-dos-watch-outs&#34;&gt;To Dos, Watch Outs&lt;/h2&gt;
+&lt;p&gt;Still in the process of learning git version control&lt;br&gt;
+A few things I could have done better:&lt;br&gt;
+Ended up nesting my deployment repo within my source repo.
+Hugo allows you to change the /public directory where the built site is dumped.
+I also did not add my theme as a git submodule and it is not properly version controlled. I will have to go back and clean up both these issues.&lt;/p&gt;
+</content>
     </item>
     
   </channel>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on MSzczeblewski</title>
-    <link>https://mszczeblewski.github.io/posts/</link>
-    <description>Recent content in Posts on MSzczeblewski</description>
+    <title>NeoVim on MSzczeblewski</title>
+    <link>https://mszczeblewski.github.io/tags/neovim/</link>
+    <description>Recent content in NeoVim on MSzczeblewski</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 Aug 2022 03:44:35 +0000</lastBuildDate><atom:link href="https://mszczeblewski.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 08 Aug 2022 03:44:35 +0000</lastBuildDate><atom:link href="https://mszczeblewski.github.io/tags/neovim/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Personal Development Environment #1</title>
       <link>https://mszczeblewski.github.io/posts/2/</link>
@@ -126,101 +126,6 @@ Though some LSPs  seem to take care of these things as well&lt;/p&gt;
 &lt;h3 id=&#34;to-do&#34;&gt;To Do&lt;/h3&gt;
 &lt;p&gt;I still need to pin packages to a working version once the setup is stable. This also include building neovim from source or running the precompiled app image since its version is fixed.
 The last thing I want to deal with is IDE throwing errors while trying to work.&lt;/p&gt;
-</content>
-    </item>
-    
-    <item>
-      <title>Build and Deploy a Static Site in a Container Using Hugo</title>
-      <link>https://mszczeblewski.github.io/posts/1/</link>
-      <pubDate>Wed, 27 Jul 2022 02:04:06 +0000</pubDate>
-      
-      <guid>https://mszczeblewski.github.io/posts/1/</guid>
-      <description>Why a Container? Well I need some excuse to use my recycled homelab server. There are some more practicle reasons as well. It gives me the ability to develop remotely from all the PCs on my network by remoting in. I can deploy the site on my local network to test on various platforms!
-Why Hugo? I chose it because it generates super simple sites that I can easily maintain. Jekyll looks pretty interesting and can generate more complex sites with plugins.</description>
-      <content>&lt;h2 id=&#34;why-a-container&#34;&gt;Why a Container?&lt;/h2&gt;
-&lt;p&gt;Well I need some excuse to use my recycled homelab server.
-There are some more practicle reasons as well.
-It gives me the ability to develop remotely from all the PCs on my network by remoting in.
-I can deploy the site on my local network to test on various platforms!&lt;/p&gt;
-&lt;h2 id=&#34;why-hugo&#34;&gt;Why Hugo?&lt;/h2&gt;
-&lt;p&gt;I chose it because it generates super simple sites that I can easily maintain.
-Jekyll looks pretty interesting and can generate more complex sites with plugins.
-Maybe that will be attempt #2&lt;/p&gt;
-&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;A workable knowledge of linux and the command line&lt;/li&gt;
-&lt;li&gt;Ability to figure out what directory you need to be in&lt;/li&gt;
-&lt;li&gt;Some kind of hypervisor to create containers&lt;/li&gt;
-&lt;li&gt;Knowledge of git&lt;/li&gt;
-&lt;li&gt;A github account to to version control and host the site&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;container-setup&#34;&gt;Container Setup&lt;/h2&gt;
-&lt;p&gt;Ceate a new LXC container (I chose unbuntu 20.04)&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;The apt package manager that comes with Unbuntu has an ancient version of Hugo&lt;br&gt;
-So I end up installing brew to get the latest version&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Login as root&lt;/p&gt;
-&lt;p&gt;Add new user and password, Add to sudoers, Set the login shell&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;useradd &amp;lt;username&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;passwd &amp;lt;username&amp;gt;  
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;adduser &amp;lt;username&amp;gt; sudo
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;chsh -s /bin/bash &amp;lt;username&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Open a new ssh session with your new username&lt;/p&gt;
-&lt;p&gt;Update the container&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;apt update
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;apt upgrade
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Install curl&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;apt install curl
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Install git and configure&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;apt install git
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git config --global user.name &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Firstname Lastname&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git config --global user.email &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;your@mail.com&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git config --list
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Install brew - Optional depending on your package managers version of Hugo&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;/bin/bash -c &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Install Hugo&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;brew install hugo
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;create-your-site&#34;&gt;Create your site&lt;/h2&gt;
-&lt;p&gt;Create new Hugo site&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo new site thisismysitename
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Add a theme &amp;ndash; I cloned the Repo instead of adding it as a submodule&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git clone https://github.com/panr/hugo-theme-terminal.git themes/terminal
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You should probably use this and add it as a submodule&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git submodule add -f https://github.com/panr/hugo-theme-terminal.git themes/terminal
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Copy the example site to the root dir of the site project&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cp -r themes/terminal/exampleSite/* .
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Build the site from project root&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo -t terminal
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To host it on your local network&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo server --bind 0.0.0.0 --baseURL http://yourip:portnumber
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Congo Rats! We have a boiler plate site.&lt;/p&gt;
-&lt;p&gt;From here on out modify as you wish.&lt;/p&gt;
-&lt;h2 id=&#34;setting-up-git&#34;&gt;Setting up GIT&lt;/h2&gt;
-&lt;p&gt;Create two repositories on github.&lt;/p&gt;
-&lt;h3 id=&#34;repo-1-deployment&#34;&gt;Repo 1 (Deployment)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Github has a feature which will automatically host and deploy sites&lt;/li&gt;
-&lt;li&gt;Setup the github site using the github.io nomenclature&lt;/li&gt;
-&lt;li&gt;EX) mszczeblewski.github.io&lt;/li&gt;
-&lt;li&gt;This repo will hold all the files dumped to /public which is the built site&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;repo-2-source-control&#34;&gt;Repo 2 (Source Control)&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;This repo will be holding your source&lt;/li&gt;
-&lt;li&gt;In the project root update the url in config.toml so it points to your github.io page&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Check out my github for an example on how I set it up&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/MSzczeblewski/mszczeblewski.github.io&#34;&gt;Depolyment Repo&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/MSzczeblewski/blog&#34;&gt;Source Repo&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;to-dos-watch-outs&#34;&gt;To Dos, Watch Outs&lt;/h2&gt;
-&lt;p&gt;Still in the process of learning git version control&lt;br&gt;
-A few things I could have done better:&lt;br&gt;
-Ended up nesting my deployment repo within my source repo.
-Hugo allows you to change the /public directory where the built site is dumped.
-I also did not add my theme as a git submodule and it is not properly version controlled. I will have to go back and clean up both these issues.&lt;/p&gt;
 </content>
     </item>
     

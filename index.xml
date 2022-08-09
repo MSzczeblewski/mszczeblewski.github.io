@@ -6,19 +6,146 @@
     <description>Recent content on MSzczeblewski</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 27 Jul 2022 02:04:06 +0000</lastBuildDate><atom:link href="https://mszczeblewski.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 08 Aug 2022 03:44:35 +0000</lastBuildDate><atom:link href="https://mszczeblewski.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Personal Development Environment #1</title>
+      <link>https://mszczeblewski.github.io/posts/2/</link>
+      <pubDate>Mon, 08 Aug 2022 03:44:35 +0000</pubDate>
+      
+      <guid>https://mszczeblewski.github.io/posts/2/</guid>
+      <description>Personal Development Environment #1 This will be more of an experience dump along with my notes from recent experiments with my development environment.
+A bit of backstory&amp;hellip; My typical day includes shelling into embedded systems, building in in docker containers, and working in virtual machines setup for specific toolchains. Working with cli text editors has been a bit of a crutch from growing up as a Windows user. They usually tend to just work, index my source and provide enough of the basics right out of the box.</description>
+      <content>&lt;h1 id=&#34;personal-development-environment-1&#34;&gt;Personal Development Environment #1&lt;/h1&gt;
+&lt;p&gt;This will be more of an experience dump along with my notes from recent experiments with my development environment.&lt;/p&gt;
+&lt;p&gt;A bit of backstory&amp;hellip;
+My typical day includes shelling into embedded systems, building in in docker containers, and working in virtual machines setup for specific toolchains. Working with cli text editors has been a bit of a crutch from growing up as a Windows user. They usually tend to just work, index my source and provide enough of the basics right out of the box. Working on embedded systems really requires a working knowledge of various command line tools to be proficient. I recently made the effort to get rid of the crutch, and there was definitely some crawling after falling over. Bright side so far, streamlined inputs and sped up repetitive tasks. The biggest difference has been the improvement to my RSI after a long day of not mousing.&lt;/p&gt;
+&lt;p&gt;This won&amp;rsquo;t be a full tutorial, there are plenty out there.
+Recording the struggles and pain points are beneficial since they tend to be the hard parts to solve.&lt;/p&gt;
+&lt;h2 id=&#34;work-setup&#34;&gt;Work setup&lt;/h2&gt;
+&lt;p&gt;The system I need to set up vim on is a VM of an older version of Ubuntu 16.04 with fixed dependencies.
+Normally I try and just grab it with the package manager so everything is handled. Ended up using the app image which comes precompiled.&lt;/p&gt;
+&lt;h2 id=&#34;the-basics&#34;&gt;The Basics&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Download neovim&lt;/li&gt;
+&lt;li&gt;Setup dot files&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;neovim-directories&#34;&gt;NeoVIM Directories&lt;/h3&gt;
+&lt;p&gt;Configs: &lt;code&gt; ~/.config/nvim&lt;/code&gt;
+Plugins: &lt;code&gt; ~/.local/share/nvim/&lt;/code&gt;
+Logs: &lt;code&gt; ~/.cache/nvim&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Download the app image&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/neovim/neovim/wiki/Installing-Neovim#linux&#34;&gt;https://github.com/neovim/neovim/wiki/Installing-Neovim#linux&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Update the permission on the file&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo chmod a&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;rx nvim.appimage
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Copy it to your bin dir&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo cp /usr/bin/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Set neovim to run as default when typing vim&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim.appimage &lt;span style=&#34;color:#ae81ff&#34;&gt;60&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo update-alternatives --config vim
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Setup the config file&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd ~/.config
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo mkdir nvim
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;vim init.lua
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Add some configs to make sure it works&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lua&#34; data-lang=&#34;lua&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;vim.bo.expandtab &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;vim.bo.shiftwidth &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;vim.bo.softtabstop &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;local&lt;/span&gt; keymap &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; vim.api.nvim_set_keymap
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;keymap(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;n&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;lt;c-s&amp;gt;&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;:w&amp;lt;CR&amp;gt;&amp;#39;&lt;/span&gt;, {})
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;keymap(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;i&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;lt;c-s&amp;gt;&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;lt;Esc&amp;gt;:w&amp;lt;CR&amp;gt;a&amp;#39;&lt;/span&gt;, {})
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;local&lt;/span&gt; opts &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; { noremap &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;keymap(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;n&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;lt;c-j&amp;gt;&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;lt;c-w&amp;gt;j&amp;#39;&lt;/span&gt;, opts)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;keymap(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;n&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;lt;c-h&amp;gt;&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;lt;c-w&amp;gt;h&amp;#39;&lt;/span&gt;, opts)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;keymap(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;n&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;lt;c-k&amp;gt;&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;lt;c-w&amp;gt;k&amp;#39;&lt;/span&gt;, opts)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;keymap(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;n&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;lt;c-l&amp;gt;&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;lt;c-w&amp;gt;l&amp;#39;&lt;/span&gt;, opts)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This concludes a barebones install of neovim.&lt;/p&gt;
+&lt;p&gt;Neovim has a ton of plugins allowing for deep customization
+From personal experience the farther I deviate from a vanilla distro experience the worse moving across systems becomes
+Working on embedded systems, or I am guessing devops this is a common scenario.
+I focused on creating a stable baseline experience without too much baggage.&lt;/p&gt;
+&lt;h2 id=&#34;semi-basics&#34;&gt;Semi Basics&lt;/h2&gt;
+&lt;p&gt;-Setup package manager&lt;br&gt;
+-Setup treesitter - This is for syntax highlighting&lt;br&gt;
+-Setup an LSP - This allows for language context&lt;br&gt;
+-Setup nvim_cmp - Auto complete&lt;br&gt;
+-Setup telescope - Fuzzy finder&lt;br&gt;
+-Pin packages to a working version&lt;br&gt;
+-Backup dot files to git repo&lt;/p&gt;
+&lt;h3 id=&#34;package-manager&#34;&gt;Package Manager&lt;/h3&gt;
+&lt;p&gt;This handles updating and downloading plugins&lt;br&gt;
+I used packer&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/wbthomason/packer.nvim#quickstart&#34;&gt;https://github.com/wbthomason/packer.nvim#quickstart&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;treesitter&#34;&gt;Treesitter&lt;/h3&gt;
+&lt;p&gt;Language parsing tool that generates metadata about your source files&lt;br&gt;
+Provides syntax highlighting, indentation and folding&lt;br&gt;
+Found the folding to be a bit troublesome, disabled it for now until I revisit it&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nvim-treesitter/nvim-treesitter/blob/master/doc/nvim-treesitter.txt&#34;&gt;https://github.com/nvim-treesitter/nvim-treesitter/blob/master/doc/nvim-treesitter.txt&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;lsp&#34;&gt;LSP&lt;/h3&gt;
+&lt;p&gt;Language Server Protocol&lt;br&gt;
+Provides auto completion options, goto definition, find references, diagnostics, etc&lt;br&gt;
+I think the concept is awesome and tried like hell to get it working&lt;br&gt;
+Unfortunately the tool chain at my job is unable to generate the needed compile_commands.json needed.
+So I ended up using ctags for goto definition and a fuzzy finder for searching references
+If you are able to easily generate the needed meta data it should be worth diving into setting up an LSP&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/neovim/nvim-lspconfig&#34;&gt;https://github.com/neovim/nvim-lspconfig&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;completion&#34;&gt;Completion&lt;/h3&gt;
+&lt;p&gt;Auto completion
+Can pull from multiple sources (Great with an LSP setup)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/hrsh7th/nvim-cmp&#34;&gt;https://github.com/hrsh7th/nvim-cmp&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;fuzzy-finder&#34;&gt;Fuzzy Finder&lt;/h3&gt;
+&lt;p&gt;Allows searching and navigation from within your project dynamically
+The github info page is misleading, ripgrep and fd are required
+Run a :check_health telescope and install anything missing
+This is my favorite plugin hands down&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nvim-telescope/telescope.nvim&#34;&gt;https://github.com/nvim-telescope/telescope.nvim&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;other-stuff&#34;&gt;Other Stuff&lt;/h3&gt;
+&lt;p&gt;Things still on the list to check out include:
+Code formatters, Linters
+Though some LSPs  seem to take care of these things as well&lt;/p&gt;
+&lt;h3 id=&#34;my-neovim-setup&#34;&gt;My NeoVim Setup&lt;/h3&gt;
+&lt;p&gt;Backup dot files to git repo like I do&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/MSzczeblewski/nvim/tree/master&#34;&gt;https://github.com/MSzczeblewski/nvim/tree/master&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;recommended-source&#34;&gt;Recommended Source&lt;/h2&gt;
+&lt;p&gt;Thorough playlist and enough to get started with neovim
+-Neovim from Scratch &lt;a href=&#34;https://youtube.com/playlist?list=PLhoH5vyxr6Qq41NFL4GvhFp-WLd5xzIzZ&#34;&gt;https://youtube.com/playlist?list=PLhoH5vyxr6Qq41NFL4GvhFp-WLd5xzIzZ&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;to-do&#34;&gt;To Do&lt;/h3&gt;
+&lt;p&gt;I still need to pin packages to a working version once the setup is stable. This also include building neovim from source or running the precompiled app image since its version is fixed.
+The last thing I want to deal with is IDE throwing errors while trying to work.&lt;/p&gt;
+</content>
+    </item>
+    
     <item>
       <title>Build and Deploy a Static Site in a Container Using Hugo</title>
       <link>https://mszczeblewski.github.io/posts/1/</link>
       <pubDate>Wed, 27 Jul 2022 02:04:06 +0000</pubDate>
       
       <guid>https://mszczeblewski.github.io/posts/1/</guid>
-      <description>Why a Container? Well I need some excuse to use my recycled homelab server. There are some more practicle reasons as well. It gives me the ability to develop remotely from all the PCs on my network by remoting in. I can selfhost the site on my local network!
+      <description>Why a Container? Well I need some excuse to use my recycled homelab server. There are some more practicle reasons as well. It gives me the ability to develop remotely from all the PCs on my network by remoting in. I can deploy the site on my local network to test on various platforms!
 Why Hugo? I chose it because it generates super simple sites that I can easily maintain. Jekyll looks pretty interesting and can generate more complex sites with plugins.</description>
       <content>&lt;h2 id=&#34;why-a-container&#34;&gt;Why a Container?&lt;/h2&gt;
-&lt;p&gt;Well I need some excuse to use my recycled homelab server. There are some more practicle reasons as well. It gives me the ability to develop remotely from all the PCs on my network by remoting in. I can selfhost the site on my local network!&lt;/p&gt;
+&lt;p&gt;Well I need some excuse to use my recycled homelab server.
+There are some more practicle reasons as well.
+It gives me the ability to develop remotely from all the PCs on my network by remoting in.
+I can deploy the site on my local network to test on various platforms!&lt;/p&gt;
 &lt;h2 id=&#34;why-hugo&#34;&gt;Why Hugo?&lt;/h2&gt;
-&lt;p&gt;I chose it because it generates super simple sites that I can easily maintain. Jekyll looks pretty interesting and can generate more complex sites with plugins. Maybe that will be attempt #2&lt;/p&gt;
+&lt;p&gt;I chose it because it generates super simple sites that I can easily maintain.
+Jekyll looks pretty interesting and can generate more complex sites with plugins.
+Maybe that will be attempt #2&lt;/p&gt;
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;A workable knowledge of linux and the command line&lt;/li&gt;
@@ -30,7 +157,7 @@ Why Hugo? I chose it because it generates super simple sites that I can easily m
 &lt;h2 id=&#34;container-setup&#34;&gt;Container Setup&lt;/h2&gt;
 &lt;p&gt;Ceate a new LXC container (I chose unbuntu 20.04)&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Caveat: The apt package manager that comes with Unbuntu has an ancient version of Hugo&lt;br&gt;
+&lt;li&gt;The apt package manager that comes with Unbuntu has an ancient version of Hugo&lt;br&gt;
 So I end up installing brew to get the latest version&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Login as root&lt;/p&gt;
@@ -70,9 +197,6 @@ So I end up installing brew to get the latest version&lt;/li&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Congo Rats! We have a boiler plate site.&lt;/p&gt;
 &lt;p&gt;From here on out modify as you wish.&lt;/p&gt;
 &lt;h2 id=&#34;setting-up-git&#34;&gt;Setting up GIT&lt;/h2&gt;
-&lt;p&gt;I am still in the process of learning git version control. So don&amp;rsquo;t take what I did from here on out as gospel.
-A few things I could have done better:&lt;br&gt;
-I ended up nesting my deployment repo within my source repo. Hugo allows you to change the /public directory where the built site is dumped. I also did not add my theme as a git submodule and it is not properly version controlled. I will have to go back and clean up both these issues.&lt;/p&gt;
 &lt;p&gt;Create two repositories on github.&lt;/p&gt;
 &lt;h3 id=&#34;repo-1-deployment&#34;&gt;Repo 1 (Deployment)&lt;/h3&gt;
 &lt;ul&gt;
@@ -86,50 +210,17 @@ I ended up nesting my deployment repo within my source repo. Hugo allows you to 
 &lt;li&gt;This repo will be holding your source&lt;/li&gt;
 &lt;li&gt;In the project root update the url in config.toml so it points to your github.io page&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Check out my github for an example on how I set it up.&lt;/p&gt;
+&lt;p&gt;Check out my github for an example on how I set it up&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/MSzczeblewski/mszczeblewski.github.io&#34;&gt;Depolyment Repo&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/MSzczeblewski/blog&#34;&gt;Source Repo&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;usefull-git-commands&#34;&gt;Usefull Git Commands&lt;/h2&gt;
-&lt;p&gt;Tell git that the current directory is a git repository&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git init
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Tell git what is the url of the remote repository&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git remote add origin &amp;lt;remote_url&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Grab the content of the remote repository&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git fetch --all --prune
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Check out the desired branch (master &amp;amp; main in my examples)&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git checkout master
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Add the new files to the current &lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git add -A .
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Commit your changes&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git commit -m &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;message here&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Upload changes back to the remote repository&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git push origin &amp;lt;branch&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://mszczeblewski.github.io/about/</link>
-      <pubDate>Tue, 26 Jul 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://mszczeblewski.github.io/about/</guid>
-      <description>Hi there </description>
-      <content>&lt;h3 id=&#34;hi-there&#34;&gt;Hi there&lt;/h3&gt;
-</content>
-    </item>
-    
-    <item>
-      <title>Hello World</title>
-      <link>https://mszczeblewski.github.io/posts/hello/</link>
-      <pubDate>Tue, 26 Jul 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://mszczeblewski.github.io/posts/hello/</guid>
-      <description>Hello Cat The internet loves cats. This is mine.</description>
-      <content>&lt;h2 id=&#34;hello-cat&#34;&gt;Hello Cat&lt;/h2&gt;
-&lt;p&gt;The internet loves cats.
-This is mine.&lt;/p&gt;
+&lt;h2 id=&#34;to-dos-watch-outs&#34;&gt;To Dos, Watch Outs&lt;/h2&gt;
+&lt;p&gt;Still in the process of learning git version control&lt;br&gt;
+A few things I could have done better:&lt;br&gt;
+Ended up nesting my deployment repo within my source repo.
+Hugo allows you to change the /public directory where the built site is dumped.
+I also did not add my theme as a git submodule and it is not properly version controlled. I will have to go back and clean up both these issues.&lt;/p&gt;
 </content>
     </item>
     
@@ -208,6 +299,17 @@ This is mine.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Aliquam erat volutpat. In hac habitasse platea dictumst. Nunc ut tincidunt mauris. Sed at gravida risus, id semper magna. Nullam vitae enim mattis, sodales neque non, pharetra elit. Cras sit amet sagittis augue, et finibus turpis. Ut tempus tincidunt diam vel pharetra. Nulla porttitor odio sit amet nulla scelerisque, quis aliquam mi imperdiet. Sed tincidunt dui vel tellus vestibulum rhoncus. Donec tempus ultrices velit.&lt;/p&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://mszczeblewski.github.io/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://mszczeblewski.github.io/about/</guid>
+      <description>Hi there </description>
+      <content>&lt;h3 id=&#34;hi-there&#34;&gt;Hi there&lt;/h3&gt;
 </content>
     </item>
     

@@ -109,5 +109,128 @@ I ended up nesting my deployment repo within my source repo. Hugo allows you to 
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
     </item>
     
+    <item>
+      <title>Build and Deploy a Static Site in a Container Using Hugo</title>
+      <link>https://mszczeblewski.github.io/posts/2/</link>
+      <pubDate>Wed, 27 Jul 2022 02:04:06 +0000</pubDate>
+      
+      <guid>https://mszczeblewski.github.io/posts/2/</guid>
+      <description>Why a Container? Personal Development Environment #1 This will be more of an experience dump along with my notes from recent experiments with my development environment.
+A bit of backstory&amp;hellip; My typical day includes shelling into embedded systems, building in in docker containers, and working in virtual machines setup for specific toolchains. Working with cli text editors has been a bit of a crutch from growing up as a Windows user.</description>
+      <content>&lt;h2 id=&#34;why-a-container&#34;&gt;Why a Container?&lt;/h2&gt;
+&lt;h1 id=&#34;personal-development-environment-1&#34;&gt;Personal Development Environment #1&lt;/h1&gt;
+&lt;p&gt;This will be more of an experience dump along with my notes from recent experiments with my development environment.&lt;/p&gt;
+&lt;p&gt;A bit of backstory&amp;hellip;
+My typical day includes shelling into embedded systems, building in in docker containers, and working in virtual machines setup for specific toolchains. Working with cli text editors has been a bit of a crutch from growing up as a Windows user. They usually tend to just work, index my source and provide enough of the basics right out of the box. Working on embedded systems really requires a working knowledge of various command line tools to be proficient. I recently made the effort to get rid of the crutch, and there was definitely some crawling after falling over. Bright side so far, streamlined inputs and sped up repetitive tasks. The biggest difference has been the improvement to my RSI after a long day of not mousing.&lt;/p&gt;
+&lt;p&gt;This won&amp;rsquo;t be a full tutorial, there are plenty out there.
+Recording the struggles and pain points are beneficial since they tend to be the hard parts to solve.&lt;/p&gt;
+&lt;h2 id=&#34;work-setup&#34;&gt;Work setup&lt;/h2&gt;
+&lt;p&gt;The system I need to set up vim on is a VM of an older version of Ubuntu 16.04 with fixed dependencies.
+Normally I try and just grab it with the package manager so everything is handled. Ended up using the app image which comes precompiled.&lt;/p&gt;
+&lt;h2 id=&#34;the-basics&#34;&gt;The Basics&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Download neovim&lt;/li&gt;
+&lt;li&gt;Setup dot files&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;neovim-directories&#34;&gt;NeoVIM Directories&lt;/h3&gt;
+&lt;p&gt;Configs: &lt;code&gt; ~/.config/nvim&lt;/code&gt;
+Plugins: &lt;code&gt; ~/.local/share/nvim/&lt;/code&gt;
+Logs: &lt;code&gt; ~/.cache/nvim&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Download the app image&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/neovim/neovim/wiki/Installing-Neovim#linux&#34;&gt;https://github.com/neovim/neovim/wiki/Installing-Neovim#linux&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Update the permission on the file&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo chmod a&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;rx nvim.appimage
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Copy it to your bin dir&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo cp /usr/bin/
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Set neovim to run as default when typing vim&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim.appimage &lt;span style=&#34;color:#ae81ff&#34;&gt;60&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo update-alternatives --config vim
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Setup the config file&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd ~/.config
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo mkdir nvim
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;vim init.lua
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Add in some configs to make sure it works&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-lua&#34; data-lang=&#34;lua&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;vim.bo.expandtab &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;vim.bo.shiftwidth &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;vim.bo.softtabstop &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;local&lt;/span&gt; keymap &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; vim.api.nvim_set_keymap
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;keymap(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;n&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;lt;c-s&amp;gt;&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;:w&amp;lt;CR&amp;gt;&amp;#39;&lt;/span&gt;, {})
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;keymap(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;i&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;lt;c-s&amp;gt;&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;lt;Esc&amp;gt;:w&amp;lt;CR&amp;gt;a&amp;#39;&lt;/span&gt;, {})
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;local&lt;/span&gt; opts &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; { noremap &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;true&lt;/span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;keymap(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;n&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;lt;c-j&amp;gt;&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;lt;c-w&amp;gt;j&amp;#39;&lt;/span&gt;, opts)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;keymap(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;n&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;lt;c-h&amp;gt;&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;lt;c-w&amp;gt;h&amp;#39;&lt;/span&gt;, opts)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;keymap(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;n&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;lt;c-k&amp;gt;&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;lt;c-w&amp;gt;k&amp;#39;&lt;/span&gt;, opts)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;keymap(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;n&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;lt;c-l&amp;gt;&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;&amp;lt;c-w&amp;gt;l&amp;#39;&lt;/span&gt;, opts)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This concludes a barebones install of neovim.&lt;/p&gt;
+&lt;p&gt;Neovim has a ton of plugins allowing for deep customization
+From personal experience the farther I deviate from a vanilla distro experience the worse moving across systems becomes
+Working on embedded systems, or I am guessing devops this is a common scenario.
+I focused on creating a stable baseline experience without too much baggage.&lt;/p&gt;
+&lt;h2 id=&#34;semi-basics&#34;&gt;Semi Basics&lt;/h2&gt;
+&lt;p&gt;-Setup package manager
+-Setup treesitter - This is for syntax highlighting
+-Setup an LSP - This allows for language context
+-Setup nvim_cmp - Auto complete
+-Setup telescope - Fuzzy finder
+-Pin packages to a working version
+-Backup dot files to git repo&lt;/p&gt;
+&lt;h3 id=&#34;package-manager&#34;&gt;Package Manager&lt;/h3&gt;
+&lt;p&gt;This handles updating and downloading plugins
+I used packer&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/wbthomason/packer.nvim#quickstart&#34;&gt;https://github.com/wbthomason/packer.nvim#quickstart&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;treesitter&#34;&gt;Treesitter&lt;/h3&gt;
+&lt;p&gt;Language parsing tool that generates metadata about your source files
+Provides syntax highlighting, indentation and folding
+I found the folding to be a bit troublesome so disabled it for now until I revisit it&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nvim-treesitter/nvim-treesitter/blob/master/doc/nvim-treesitter.txt&#34;&gt;https://github.com/nvim-treesitter/nvim-treesitter/blob/master/doc/nvim-treesitter.txt&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;lsp&#34;&gt;LSP&lt;/h3&gt;
+&lt;p&gt;Language Server Protocol
+Provides auto completion options, goto definition, find references, diagnostics, etc
+I think the concept is awesome and tried like hell to get it working.
+Unfortunately the tool chain at my job is unable to generate the needed compile_commands.json needed.
+So I ended up using ctags for goto definition and a fuzzy finder for searching references
+If you are able to easily generate the needed meta data it should be worth diving into setting up an LSP&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/neovim/nvim-lspconfig&#34;&gt;https://github.com/neovim/nvim-lspconfig&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;completion&#34;&gt;Completion&lt;/h3&gt;
+&lt;p&gt;Auto completion
+Can pull from multiple sources (Great with an LSP setup)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/hrsh7th/nvim-cmp&#34;&gt;https://github.com/hrsh7th/nvim-cmp&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;fuzzy-finder&#34;&gt;Fuzzy Finder&lt;/h3&gt;
+&lt;p&gt;Allows searching and navigation from within your project dynamically
+The github info page is misleading, ripgrep and fd are required
+Run a :check_health telescope and install anything missing
+This is my favorite plugin hands down&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/nvim-telescope/telescope.nvim&#34;&gt;https://github.com/nvim-telescope/telescope.nvim&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;other-stuff&#34;&gt;Other Stuff&lt;/h3&gt;
+&lt;p&gt;Things still on the list to check out include:
+Code formatters, Linters
+Though some LSPs  seem to take care of these things as well&lt;/p&gt;
+&lt;h3 id=&#34;my-neovim-setup&#34;&gt;My NeoVim Setup&lt;/h3&gt;
+&lt;p&gt;Backup dot files to git repo like I do&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/MSzczeblewski/nvim/tree/master&#34;&gt;https://github.com/MSzczeblewski/nvim/tree/master&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;recommended-source&#34;&gt;Recommended Source&lt;/h2&gt;
+&lt;p&gt;Thorough playlist and enough to get started with neovim
+-Neovim from Scratch &lt;a href=&#34;https://youtube.com/playlist?list=PLhoH5vyxr6Qq41NFL4GvhFp-WLd5xzIzZ&#34;&gt;https://youtube.com/playlist?list=PLhoH5vyxr6Qq41NFL4GvhFp-WLd5xzIzZ&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;to-do&#34;&gt;To Do&lt;/h3&gt;
+&lt;p&gt;I still need to pin packages to a working version once the setup is stable. This also include building neovim from source or running the precompiled app image since its version is fixed.
+The last thing I want to deal with is IDE throwing errors while trying to work.&lt;/p&gt;
+</content>
+    </item>
+    
   </channel>
 </rss>
