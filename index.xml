@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>MSzczeblewski</title>
-    <link>https://mszczeblewski.github.io/</link>
+    <link>http://mszczeblewski.github.io/</link>
     <description>Recent content on MSzczeblewski</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 Aug 2022 03:44:35 +0000</lastBuildDate><atom:link href="https://mszczeblewski.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 08 Aug 2022 03:44:35 +0000</lastBuildDate><atom:link href="http://mszczeblewski.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Personal Development Environment #1</title>
-      <link>https://mszczeblewski.github.io/posts/2/</link>
+      <link>http://mszczeblewski.github.io/posts/2/</link>
       <pubDate>Mon, 08 Aug 2022 03:44:35 +0000</pubDate>
       
-      <guid>https://mszczeblewski.github.io/posts/2/</guid>
+      <guid>http://mszczeblewski.github.io/posts/2/</guid>
       <description>Personal Development Environment #1 This will be more of an experience dump along with my notes from recent experiments with my development environment.
 A bit of backstory&amp;hellip; My typical day includes shelling into embedded systems, building in in docker containers, and working in virtual machines setup for specific toolchains. Working with cli text editors has been a bit of a crutch from growing up as a Windows user. They usually tend to just work, index my source and provide enough of the basics right out of the box.</description>
       <content>&lt;h1 id=&#34;personal-development-environment-1&#34;&gt;Personal Development Environment #1&lt;/h1&gt;
@@ -132,10 +132,10 @@ The last thing I want to deal with is IDE throwing errors while trying to work.&
     
     <item>
       <title>Build and Deploy a Static Site in a Container Using Hugo</title>
-      <link>https://mszczeblewski.github.io/posts/1/</link>
+      <link>http://mszczeblewski.github.io/posts/1/</link>
       <pubDate>Wed, 27 Jul 2022 02:04:06 +0000</pubDate>
       
-      <guid>https://mszczeblewski.github.io/posts/1/</guid>
+      <guid>http://mszczeblewski.github.io/posts/1/</guid>
       <description>Why a Container? Well I need some excuse to use my recycled homelab server. There are some more practicle reasons as well. It gives me the ability to develop remotely from all the PCs on my network by remoting in. I can deploy the site on my local network to test on various platforms!
 Why Hugo? I chose it because it generates super simple sites that I can easily maintain. Jekyll looks pretty interesting and can generate more complex sites with plugins.</description>
       <content>&lt;h2 id=&#34;why-a-container&#34;&gt;Why a Container?&lt;/h2&gt;
@@ -227,10 +227,10 @@ I also did not add my theme as a git submodule and it is not properly version co
     
     <item>
       <title>Showcase</title>
-      <link>https://mszczeblewski.github.io/showcase/</link>
+      <link>http://mszczeblewski.github.io/showcase/</link>
       <pubDate>Wed, 18 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://mszczeblewski.github.io/showcase/</guid>
+      <guid>http://mszczeblewski.github.io/showcase/</guid>
       <description>Header 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec interdum metus. Aenean rutrum ligula sodales ex auctor, sed tempus dui mollis. Curabitur ipsum dui, aliquet nec commodo at, tristique eget ante. Donec quis dolor nec nunc mollis interdum vel in purus. Sed vitae leo scelerisque, sollicitudin elit sed, congue ante. In augue nisl, vestibulum commodo est a, tristique porttitor est. Proin laoreet iaculis ornare. Nullam ut neque quam.</description>
       <content>&lt;h2 id=&#34;header-2&#34;&gt;Header 2&lt;/h2&gt;
 &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec interdum metus. Aenean rutrum ligula sodales ex auctor, sed tempus dui mollis. Curabitur ipsum dui, aliquet nec commodo at, tristique eget ante. &lt;strong&gt;Donec quis dolor nec nunc mollis interdum vel in purus&lt;/strong&gt;. Sed vitae leo scelerisque, sollicitudin elit sed, congue ante. In augue nisl, vestibulum commodo est a, tristique porttitor est. Proin laoreet iaculis ornare. Nullam ut neque quam.&lt;/p&gt;
@@ -305,10 +305,10 @@ I also did not add my theme as a git submodule and it is not properly version co
     
     <item>
       <title>About</title>
-      <link>https://mszczeblewski.github.io/about/</link>
+      <link>http://mszczeblewski.github.io/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://mszczeblewski.github.io/about/</guid>
+      <guid>http://mszczeblewski.github.io/about/</guid>
       <description>Hi there </description>
       <content>&lt;h3 id=&#34;hi-there&#34;&gt;Hi there&lt;/h3&gt;
 </content>
