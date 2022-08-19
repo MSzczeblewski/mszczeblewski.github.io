@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Homelab on MSzczeblewski</title>
-    <link>https://mszczeblewski.github.io/tags/homelab/</link>
+    <link>http://mszczeblewski.github.io/tags/homelab/</link>
     <description>Recent content in Homelab on MSzczeblewski</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 19 Aug 2022 00:31:02 +0000</lastBuildDate><atom:link href="https://mszczeblewski.github.io/tags/homelab/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 19 Aug 2022 00:31:02 +0000</lastBuildDate><atom:link href="http://mszczeblewski.github.io/tags/homelab/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Home Lab #1</title>
-      <link>https://mszczeblewski.github.io/posts/3/</link>
+      <link>http://mszczeblewski.github.io/posts/3/</link>
       <pubDate>Fri, 19 Aug 2022 00:31:02 +0000</pubDate>
       
-      <guid>https://mszczeblewski.github.io/posts/3/</guid>
+      <guid>http://mszczeblewski.github.io/posts/3/</guid>
       <description>A great thing about being interested in technology for years is the plethora of extra parts lying around. Gather up all the stuff acumilating for years and now we have a server!
 Specs Intel i7 3770k 16GB DDR3 1.25 TB SSD 5 TB HDD Quad Port 1GB Cisco NIC (Intel I350) Goal One of the main goals is to virtualize a router and run the Home Lab behind it so networking experiments can be conducted without affecting anyone else in the house.</description>
       <content>&lt;p&gt;A great thing about being interested in technology for years is the plethora of extra parts lying around. Gather up all the stuff acumilating for years and now we have a server!&lt;/p&gt;
 
   &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;https://mszczeblewski.github.io/img/post03/DSCF1609.JPG&#34;   /&gt;
+    &lt;img src=&#34;http://mszczeblewski.github.io/img/post03/DSCF1609.JPG&#34;   /&gt;
     
   &lt;/figure&gt;
 
