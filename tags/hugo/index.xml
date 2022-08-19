@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>HUGO on MSzczeblewski</title>
-    <link>http://mszczeblewski.github.io/tags/hugo/</link>
+    <link>https://mszczeblewski.github.io/tags/hugo/</link>
     <description>Recent content in HUGO on MSzczeblewski</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 27 Jul 2022 02:04:06 +0000</lastBuildDate><atom:link href="http://mszczeblewski.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 27 Jul 2022 02:04:06 +0000</lastBuildDate><atom:link href="https://mszczeblewski.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Build and Deploy a Static Site in a Container Using Hugo</title>
-      <link>http://mszczeblewski.github.io/posts/1/</link>
+      <link>https://mszczeblewski.github.io/posts/1/</link>
       <pubDate>Wed, 27 Jul 2022 02:04:06 +0000</pubDate>
       
-      <guid>http://mszczeblewski.github.io/posts/1/</guid>
+      <guid>https://mszczeblewski.github.io/posts/1/</guid>
       <description>Why a Container? Well I need some excuse to use my recycled homelab server. There are some more practicle reasons as well. It gives me the ability to develop remotely from all the PCs on my network by remoting in. I can deploy the site on my local network to test on various platforms!
 Why Hugo? I chose it because it generates super simple sites that I can easily maintain. Jekyll looks pretty interesting and can generate more complex sites with plugins.</description>
       <content>&lt;h2 id=&#34;why-a-container&#34;&gt;Why a Container?&lt;/h2&gt;

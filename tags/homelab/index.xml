@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Homelab on MSzczeblewski</title>
+    <link>https://mszczeblewski.github.io/tags/homelab/</link>
+    <description>Recent content in Homelab on MSzczeblewski</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 19 Aug 2022 00:31:02 +0000</lastBuildDate><atom:link href="https://mszczeblewski.github.io/tags/homelab/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Home Lab #1</title>
+      <link>https://mszczeblewski.github.io/posts/3/</link>
+      <pubDate>Fri, 19 Aug 2022 00:31:02 +0000</pubDate>
+      
+      <guid>https://mszczeblewski.github.io/posts/3/</guid>
+      <description>A great thing about being interested in technology for years is the plethora of extra parts lying around. Gather up all the stuff acumilating for years and now we have a server!
+Specs Intel i7 3770k 16GB DDR3 1.25 TB SSD 5 TB HDD Quad Port 1GB Cisco NIC (Intel I350) Goal One of the main goals is to virtualize a router and run the Home Lab behind it so networking experiments can be conducted without affecting anyone else in the house.</description>
+      <content>&lt;p&gt;A great thing about being interested in technology for years is the plethora of extra parts lying around. Gather up all the stuff acumilating for years and now we have a server!&lt;/p&gt;
+
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;https://mszczeblewski.github.io/img/post03/DSCF1609.JPG&#34;   /&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;h2 id=&#34;specs&#34;&gt;Specs&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Intel i7 3770k&lt;/li&gt;
+&lt;li&gt;16GB DDR3&lt;/li&gt;
+&lt;li&gt;1.25 TB SSD&lt;/li&gt;
+&lt;li&gt;5 TB HDD&lt;/li&gt;
+&lt;li&gt;Quad Port 1GB Cisco NIC (Intel I350)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;goal&#34;&gt;Goal&lt;/h3&gt;
+&lt;p&gt;One of the main goals is to virtualize a router and run the Home Lab behind it so networking experiments can be conducted without affecting anyone else in the house.
+As things progress the plan is to fully integrate the networks using vlans to seperate traffic.&lt;/p&gt;
+&lt;h3 id=&#34;current&#34;&gt;Current&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Proxmox is running as the hypervisor&lt;/li&gt;
+&lt;li&gt;Pfsense has been installed&lt;/li&gt;
+&lt;li&gt;Homelab is currently running behind pfsense router&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;future&#34;&gt;Future&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Pfsense to setup proper firewall rules&lt;/li&gt;
+&lt;li&gt;Samba server in LXC container for NFS&lt;/li&gt;
+&lt;li&gt;Docker and messing around with some projects&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </item>
+    
+  </channel>
+</rss>
